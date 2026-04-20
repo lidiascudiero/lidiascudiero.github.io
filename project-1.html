@@ -70,30 +70,36 @@
           <div class="project-details__content-main">
  <div class="project-details__desc">
   
+  <div class="project-details__content">
   <h3 class="project-details__content-title">Project Overview</h3>
   <p class="project-details__desc-para">
-    This project tackled the challenge of transitioning urban mobility infrastructure from reactive to predictive strategies by processing a massive dataset of <strong>7.5 million telemetry logs</strong>. Applying a behavioral lens to IoT data, the study focused on identifying the exact transition points between normal operational states and system failures in a high-noise industrial environment.
+    This project tackled the challenge of transitioning urban mobility infrastructure from reactive to predictive maintenance by processing a massive dataset of <strong>7.5 million telemetry logs</strong>. Operating in a high-noise industrial environment without dedicated IoT sensors, the study focused on identifying the precise transition points between normal operational states and system failures.
   </p>
   <p class="project-details__desc-para">
-    A core component of the work was a rigorous <strong>Root-Cause Analysis (RCA)</strong> designed to decode the "behavior" of the machines. By isolating pervasive maintenance noise from genuine hardware anomalies, I was able to map the true diagnostic profile of the assets.
+    A core component of the work was a rigorous <strong>Root-Cause Analysis (RCA)</strong> designed to decode machine behavior. By isolating pervasive maintenance-related noise (such as system reboots) from genuine hardware anomalies, I significantly improved the reliability of failure detection and optimized the <strong>Signal-to-Noise Ratio (SNR)</strong> of the diagnostic profile.
   </p>
 
-  <h3 class="project-details__content-title">Key Milestones</h3>
+  <h3 class="project-details__content-title">Modeling Strategy and Iterative Refinement</h3>
   <p class="project-details__desc-para">
-   The analysis led to a pivotal discovery: failures within the infrastructure manifested as <strong>sudden and stochastic events</strong> rather than gradual degradations. This insight shifted the project's focus from  time-series forecasting to <strong>Knowledge Discovery</strong>, providing the client with a precise map of unpredictable vulnerabilities.
+    The modeling approach followed an iterative strategy, transitioning from classical machine learning (Classification and RUL estimation) to complex time-series architectures and Deep Learning. This rigorous benchmarking allowed for a critical evaluation of the trade-offs between <strong>interpretability, performance, and robustness</strong>.
   </p>
   <p class="project-details__desc-para">
-    I developed an interactive <strong>Streamlit dashboard</strong> that serves as a diagnostic tool for stakeholders. This platform transforms raw telemetry into historical insights, allowing for real-time exploration of error patterns and root-cause identification.
+    Given the high-noise nature of the telemetry data, the final architecture prioritized models that provided <strong>reliable diagnostic insights</strong> over pure predictive accuracy. This ensured that the resulting system remained grounded in physical reality, avoiding the pitfalls of overfitting to stochastic industrial artifacts.
+  </p>
+
+  <h3 class="project-details__content-title">Key Milestones and Strategic Impact</h3>
+  <p class="project-details__desc-para">
+    The analysis led to a pivotal discovery: failures manifested as <strong>sudden stochastic events</strong> rather than gradual degradations. This insight shifted the project's focus from standard time-series forecasting to <strong>advanced knowledge discovery</strong> and anomaly detection, providing a precise map of unpredictable system vulnerabilities.
   </p>
   <p class="project-details__desc-para">
-    Beyond the predictive modeling, I provided the client with a comprehensive <strong>data governance roadmap</strong>. This included identifying data quality gaps and outlining standards for future IoT sensor integration (vibration and temperature) to enable more granular predictive capabilities.
+    I engineered an interactive <strong>Streamlit dashboard</strong> to serve as a diagnostic hub. This platform transforms raw telemetry into historical insights, allowing stakeholders to explore error patterns and perform real-time root-cause investigations. To ensure architectural scalability, I implemented a high-performance pipeline using <strong>DuckDB and vectorized temporal aggregations</strong>.
   </p>
   <p class="project-details__desc-para">
-    I implemented a high-performance pipeline using <strong>DuckDB</strong> and <strong>vectorized temporal aggregations</strong> to handle 7.5M records, ensuring the scalability of the feasibility study for large-scale urban deployment.
+    Beyond modeling, I delivered a comprehensive <strong>data governance roadmap</strong>. This included identifying data quality gaps and outlining standards for future sensor integration (vibration and temperature) to enable more granular, multi-modal predictive capabilities in future deployments.
   </p>
 
   <p class="project-details__desc-para" style="margin-top: 3rem; font-weight: 600; color: #333; border-top: 1px solid #eee; padding-top: 2rem;">
-    For a deep dive into the analytical process and the architectural workflow of this feasibility study, the GitHub repository includes the description of the experimental pipeline.
+    For a deep dive into the experimental pipeline and the architectural workflow of this feasibility study, the GitHub repository offers full access to the analytical process.
   </p>
 </div>
             <div class="project-details__tools-used">
