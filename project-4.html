@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Normative Graph-RAG | Lidia Scudiero Case Study</title>
+    <meta name="description" content="Normative Graph-RAG Case Study by Lidia Scudiero" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/png/lidia-scudiero.png"
+              alt="Lidia Scudiero Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Lidia Scudiero</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper"><a href="./index.html" class="header__link">Home</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#about" class="header__link">About</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#projects" class="header__link">Projects</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#contact" class="header__link">Contact</a></li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img src="./assets/svg/ham-menu.svg" alt="hamburger menu" class="header__main-ham-menu" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-cs-hero">
+      <div class="project-cs-hero__content">
+        <h1 class="heading-primary">Normative Graph-RAG for Aerospace Compliance</h1>
+        <div class="project-cs-hero__info">
+          <p class="text-primary">
+            Transitioning from Flat Text Search to Topologically-Aware AI for Aerospace Standards, treating complex regulatory frameworks as interconnected normative networks.
+          </p>
+        </div>
+        <div class="project-cs-hero__cta">
+          <a href="https://github.com/lidiascudiero/normative_graph_rag_aerospace" class="btn btn--bg" target="_blank">GitHub Repo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <div class="project-details__showcase-img-cont">
+            <img
+              src="./assets/jpeg/project_4.jpg"
+              alt="Project Showcase Image"
+              class="project-details__showcase-img"
+            />
+          </div>
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <div class="project-details__content">
+                
+                <h3 class="project-details__content-title">Project Overview</h3>
+                <p class="project-details__desc-para">
+                  I designed a hybrid Graph-RAG architecture for retrieving and reasoning over European Cooperation for Space Standardization (ECSS) engineering documents.
+                </p>
+                <p class="project-details__desc-para">
+                  Unlike conventional vector-based RAG, which primarily retrieves semantically similar text chunks, this system explicitly models <strong>the structural relationships and normative dependencies encoded in aerospace standards</strong>. This is particularly important for requirements containing cross-references and deontic constraints such as <strong>SHALL, SHOULD, and MAY</strong>.
+                </p>
+                <p class="project-details__desc-para">
+                  Drawing on my background in Cognitive Neuroscience, I approached the standards as <strong>structured knowledge networks</strong> rather than collections of independent text passages.
+                </p>
+
+                <h3 class="project-details__content-title">System Architecture</h3>
+                <p class="project-details__desc-para">
+                  The retrieval pipeline combines several advanced techniques. It uses <strong>ChromaDB + Hugging Face embeddings</strong> for Top-K semantic retrieval, while <strong>NetworkX</strong> represents the normative relationships between requirements. A deterministic <strong>Regex + NetworkX parser</strong> extracts nodes and edges directly from retrieved document chunks.
+                </p>
+                <p class="project-details__desc-para">
+                  The system performs ego-graph traversal along CONTAINS and REFERENCES relationships to recover relevant structural context. <strong>Qwen2.5-7B-Instruct</strong> handles grounded response generation, where retrieved assertions are explicitly traced back to their lexical or graph-based source, providing an interpretable retrieval path rather than treating the context as an undifferentiated set of text chunks.
+                </p>
+
+                <h3 class="project-details__content-title">Engineering Results</h3>
+                <p class="project-details__desc-para">
+                  I built and tested a dual-layer retrieval engine on a full ECSS corpus, automatically constructing a normative graph containing <strong>1,935 nodes and 2,098 edges</strong>. The pipeline extracts the graph structure directly from document chunks without manual annotation, enabling the retrieval system to recover multi-hop dependencies between requirements.
+                </p>
+
+                <h3 class="project-details__content-title">Future Roadmap and Extensions</h3>
+                <p class="project-details__desc-para">
+                  The architecture is designed as a foundation for progressively more scalable, multimodal, and autonomous compliance workflows.
+                </p>
+                <p class="project-details__desc-para">
+                  <strong>Scalable Graph Infrastructure:</strong> migrate from the in-memory NetworkX topology to a persistent graph database such as <strong>Neo4j</strong> or <strong>Memgraph</strong>, enabling the integration of larger and cross-agency standards collections.
+                </p>
+                <p class="project-details__desc-para">
+                  <strong>Multi-Modal RAG:</strong> extend the retrieval architecture to process <strong>flowcharts, decision trees, and compliance tables</strong> using Vision-Language Models and advanced document parsing tools such as <code>LlamaParse</code> or <code>Unstructured</code>.
+                </p>
+                <p class="project-details__desc-para">
+                  <strong>Agentic Compliance Workflows:</strong> evolve the current single-prompt pipeline into a multi-step architecture using <strong>LangGraph</strong> or <strong>CrewAI</strong>, with specialized agents for retrieval, evidence verification, and compliance-gap analysis.
+                </p>
+                <p class="project-details__desc-para">
+                  <strong>Automated Compliance Matrix Export:</strong> generate <strong>Requirements Traceability Matrices (RTM)</strong> and Verification Control Documents (VCD) directly from retrieved requirements, with export to <code>.xlsx</code> or <code>.csv</code>.
+                </p>
+                <p class="project-details__desc-para">
+                  <strong>Advanced Entity Extraction:</strong> complement the current deterministic Regex parser with lightweight NLP models such as <strong>spaCy</strong> or <strong>GLiNER</strong>, enabling the graph to connect normative constraints to domain entities such as hardware components and software interfaces.
+                </p>
+                
+              </div>
+            </div>
+            
+            <div class="project-details__tools-used">
+              <h3 class="project-details__content-title">Tools and Tech Stack</h3>
+              <div class="skills">
+                <div class="skills__skill">Python</div>
+                <div class="skills__skill">NetworkX</div>
+                <div class="skills__skill">ChromaDB</div>
+                <div class="skills__skill">LangChain</div>
+                <div class="skills__skill">Hugging Face</div>
+                <div class="skills__skill">Qwen2.5-7B</div>
+                <div class="skills__skill">Sentence-Transformers</div>
+                <div class="skills__skill">Streamlit</div>
+                <div class="skills__skill">Pyvis</div>
+              </div>
+            </div>
+            
+            <div class="project-details__links">
+              <h3 class="project-details__content-title">Project Links</h3>
+              <a
+                href="https://github.com/lidiascudiero/normative_graph_rag_aerospace"
+                class="btn btn--med btn--theme project-details__links-btn"
+                target="_blank"
+              >GitHub Repository</a>
+              <a
+                href="./index.html#projects"
+                class="btn btn--med btn--theme-inv project-details__links-btn"
+              >Go Back</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Social</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/lidia-scudiero-413372354/">
+                <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="LinkedIn" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/lidiascudiero">
+                <img class="main-footer__icon" src="./assets/png/github-ico.png" alt="GitHub" />
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://www.youtube.com/@LidiaScudiero">
+                <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/yt-ico.png" alt="YouTube" />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Lidia Scudiero</h4>
+            <p class="main-footer__short-desc">
+              Neuro-Data Scientist and Analyst building interpretable analytics for complex systems and real-world data.
+            </p>
+          </div>
+        </div>
+        <div class="main-footer__lower">
+          &copy; Copyright 2026. Made by Lidia Scudiero
+        </div>
+      </div>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
