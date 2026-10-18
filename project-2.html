@@ -36,7 +36,7 @@
         <h1 class="heading-primary">Motor Imagery BCI: Decoding Neural Intentions</h1>
         <div class="project-cs-hero__info">
           <p class="text-primary">
-            Decoding motor imagery (left vs right hand vs foot vs tongue) from noisy EEG signals using Spatial Filters (CSP) and Deep Learning (EEGNet).
+            Decoding motor imagery (left vs right hand vs foot vs tongue) from noisy EEG signals using Spatial Filters (CSP), Deep Learning (EEGNet), AttentionBaseNet and Riemannian geometry .
           </p>
         </div>
         <div class="project-cs-hero__cta" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
@@ -58,19 +58,25 @@
   <div class="project-details__desc">
     <h3 class="project-details__content-title">Project Overview</h3>
     <p class="project-details__desc-para">
-      Brain-Computer Interfaces (BCIs) represent the ultimate bridge between human cognition and machine execution. This project focuses on <strong>Motor Imagery (MI)</strong> decoding—identifying a user's intention to move loro hands just by analyzing brain's electrical activity (EEG) captured via noisy sensors.
+      Brain-Computer Interfaces (BCIs) represent the ultimate bridge between human cognition and machine execution. This project focuses on <strong>Motor Imagery (MI)</strong> decoding—identifying a user's intention to move their hands,feet and tongue just by analyzing brain's electrical activity (EEG) captured via noisy sensors.
     </p>
     <p class="project-details__desc-para">
-      The core challenge was the extremely low Signal-to-Noise Ratio (SNR) of EEG data. I implemented and compared two distinct pipelines: a classical approach using <strong>Common Spatial Patterns (CSP)</strong> combined with LDA, and a state-of-the-art Deep Learning approach using <strong>EEGNet</strong>, a compact convolutional neural network specifically designed for BCI applications.
+      The core challenge was the low Signal-to-Noise Ratio (SNR) and high inter-subject variability of EEG data. I implemented and compared multiple decoding approaches: a classical pipeline using <strong>Common Spatial Patterns (CSP) + LDA</strong>, compact deep learning with <strong>EEGNet</strong>, and <strong>AttentionBaseNet</strong> with channel-attention mechanisms. I also explored <strong>Riemannian geometry</strong> using covariance-based classifiers and tangent-space methods with pyRiemann. 
     </p>
 
-    <h3 class="project-details__content-title">Key Technical Milestone</h3>
-    <p class="project-details__desc-para">
-      A major focus was <strong>Subject-Independent training</strong>, a high-difficulty task where the model must generalize across different brain architectures without prior calibration on the specific user. <strong>I achieved competitive accuracy</strong> benchmarks on the BCI Competition IV 2a dataset, demonstrating the robustness of the chosen architectures.
-    </p>
-    <p class="project-details__desc-para">
-      By visualizing neural topomaps and frequency bands (Mu/Beta rhythms), I validated that the models were truly listening to the motor cortex rather than picking up muscle artifacts or electrical noise, ensuring the <strong>physiological validity</strong> of the neural intentions decoded.
-    </p>
+    <h3 class="project-details__content-title">Key Technical Milestones</h3>
+        <p class="project-details__desc-para">
+          A major focus was <strong>subject-independent evaluation</strong>, assessing whether models could generalize to unseen participants using subject-wise holdout and Leave-One-Subject-Out (LOSO) protocols. I also investigated <strong>within-subject cross-session generalization</strong>, training EEGNet on one recording session and evaluating it on a separate session. These experiments enabled a more rigorous assessment of generalization under different data-splitting and calibration conditions.
+        </p>
+        <p class="project-details__desc-para">
+          I evaluated <strong>Gaussian noise augmentation</strong> as a potential regularization strategy and investigated <strong>Riemannian Alignment and tangent-space updating</strong> to mitigate inter-subject variability using unlabeled target data. Results showed that adaptation improved the reported performance of Riemannian methods, while Gaussian augmentation did not produce a clear aggregate improvement in the evaluated settings.
+        </p>
+        <p class="project-details__desc-para">
+          To investigate model interpretability, I analyzed <strong>CSP topographies, mu/beta frequency-band perturbations, channel occlusion, and class-confusion patterns</strong>. These analyses helped assess whether model behavior was qualitatively consistent with sensorimotor EEG characteristics around regions such as C3 and C4, providing evidence of physiological plausibility rather than definitive cortical source localization.
+        </p>
+        <p class="project-details__desc-para">
+          Finally, I developed interactive <strong>Streamlit BCI demonstrations</strong> for binary CSP + LDA and four-class EEGNet decoding, including simulated streaming inference with PyLSL.
+        </p>
 
     <p class="project-details__desc-para" style="margin-top: 2rem; font-weight: 600; color: #333;">
       For a deep dive into my analytical process, the GitHub repository includes all the Jupyter Notebooks, preprocessing steps, and detailed statistical analyses conducted throughout the project.
@@ -83,6 +89,8 @@
                 <div class="skills__skill">MNE-Python</div>
                 <div class="skills__skill">PyLSL</div>
                 <div class="skills__skill">TensorFlow (EEGNet)</div>
+                <div class="skills__skill">Braindecode</div>
+                <div class="skills__skill">pyRiemann</div>
                 <div class="skills__skill">Scikit-Learn</div>
                 <div class="skills__skill">CSP Filters</div>
                 <div class="skills__skill">Streamlit</div>
