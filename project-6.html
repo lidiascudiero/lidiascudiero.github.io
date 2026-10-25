@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Wearable Stress and Affect | Lidia Scudiero Case Study</title>
+    <meta name="description" content="A WESAD case study combining physiological signal processing, subject-independent machine learning, sensor fusion, and interpretable predictions by Lidia Scudiero." />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&amp;display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img src="./assets/png/lidia-scudiero.png" alt="Lidia Scudiero" class="header__logo-img" />
+          </div>
+          <span class="header__logo-sub">Lidia Scudiero</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper"><a href="./index.html" class="header__link">Home</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#about" class="header__link">About</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#projects" class="header__link">Projects</a></li>
+            <li class="header__link-wrapper"><a href="./index.html#contact" class="header__link">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="project-cs-hero">
+        <div class="project-cs-hero__content">
+          <h1 class="heading-primary">Wearable Stress and Affect: Interpretable Machine Learning</h1>
+          <div class="project-cs-hero__info">
+            <p class="text-primary">
+              Connecting physiological signals and subjective experience through
+              subject-independent machine learning, multimodal fusion, and model interpretation.
+            </p>
+          </div>
+          <div class="project-cs-hero__cta">
+            <!-- Replace GITHUB_REPOSITORY_URL with the project repository URL. -->
+            <a href="https://github.com/lidiascudiero/stress_physio_predictions" class="btn btn--bg" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-details">
+        <div class="main-container">
+          <div class="project-details__content">
+            <div class="project-details__showcase-img-cont">
+              <img src="./assets/jpeg/project_wesad.jpg" alt="WESAD wearable stress and affect classification benchmark" class="project-details__showcase-img" />
+            </div>
+
+            <div class="project-details__content-main">
+              <div class="project-details__desc">
+                <h3 class="project-details__content-title">Project overview</h3>
+                <p class="project-details__desc-para">
+                  This project investigates whether wrist and chest physiological signals
+                  can distinguish <strong>baseline, stress, and amusement in unseen participants</strong>.
+                  Using the WESAD dataset, introduced by Schmidt and colleagues, I developed
+                  a workflow spanning signal-quality assessment, feature engineering,
+                  machine-learning evaluation, and interpretation of individual predictions.
+                </p>
+                <p class="project-details__desc-para">
+                  The central challenge was <strong>variability between people</strong>:
+                  a model that recognizes patterns in familiar recordings may struggle with
+                  a new participant. I used <strong>leave-one-subject-out evaluation with
+                  participant-grouped inner validation</strong>, keeping preprocessing and
+                  hyperparameter tuning within the training participants.
+                </p>
+
+                <h3 class="project-details__content-title">A Cognitive Neuroscience perspective</h3>
+                <p class="project-details__desc-para">
+                  My background in <strong> Cognitive Neuroscience</strong>
+                  informed the distinction between experimental conditions, peripheral physiology,
+                  and subjective experience. These measurements are related, but they are not
+                  interchangeable. I incorporated exploratory self-report analyses to investigate
+                  associations with physiological features and held-out model outputs, without
+                  using the questionnaires as classifier-training labels.
+                </p>
+
+                <h3 class="project-details__content-title">Modeling strategy and sensor fusion</h3>
+                <p class="project-details__desc-para">
+                  I benchmarked <strong>logistic regression, Random Forest, XGBoost,
+                  LightGBM, and MLP</strong> against a majority-class reference.
+                  The analysis compared wrist-only, chest-only, and combined inputs on
+                  matching valid windows. Exploratory extensions included
+                  <strong>late fusion</strong>, simulated missing-modality scenarios,
+                  binary stress tasks, and a four-class task including meditation.
+                </p>
+                <p class="project-details__desc-para">
+                  A separate <strong>feature-redundancy sensitivity analysis</strong>
+                  evaluated correlation filters at 0.95, 0.90, and 0.80, fitted inside
+                  the training folds. The benchmark checked metrics directly from saved
+                  out-of-fold predictions and compared precision, recall, F1, and balanced
+                  accuracy without mixing different prediction tasks.
+                </p>
+
+                <h3 class="project-details__content-title">Key findings and interpretation</h3>
+                <p class="project-details__desc-para">
+                  Exploratory <strong>late fusion achieved 73.3% balanced accuracy</strong>
+                  on the three-class task. Early-fusion Random Forest with the 0.90
+                  correlation filter reached <strong>72.4%</strong>, using approximately
+                  35 rather than 45 features. Their paired comparison did not establish
+                  a clear advantage for either candidate. On the separate stress/non-stress
+                  task, wrist logistic regression reached <strong>90.3% balanced accuracy</strong>.
+                </p>
+                <p class="project-details__desc-para">
+                  Results highlighted an important limitation: aggregate performance can
+                  conceal <strong>class-specific errors and large individual differences</strong>.
+                  Amusement remained difficult, while confidence-based rejection sometimes
+                  removed entire classes for a participant. I therefore examined both
+                  prediction quality and the proportion of decisions the system retained.
+                </p>
+
+                <h3 class="project-details__content-title">Explainability and analytical transparency</h3>
+                <p class="project-details__desc-para">
+                  The interpretation workflow uses <strong>Monte Carlo estimates of Shapley
+                  values</strong> to explain saved models on held-out participants, supported
+                  by beeswarm and waterfall plots, physiological feature-group summaries,
+                  and PDP/ALE visualizations. These analyses describe how the models use
+                  their inputs; they do not establish physiological causes of stress.
+                </p>
+                <p class="project-details__desc-para">
+                  The project is an independent analysis of laboratory WESAD recordings,
+                  <strong>not a clinically validated or real-world stress-monitoring system</strong>.
+                  Model rankings remain conditional on this sample and evaluation design.
+                </p>
+
+                <p class="project-details__desc-para" style="margin-top: 3rem; font-weight: 600; color: #333; border-top: 1px solid #eee; padding-top: 2rem;">
+                  For a deep dive into  my analytical approach to the signal-processing pipeline, LOSO experiments,
+                  statistical analyses, and interpretability workflow, visit the
+                  <a href="GITHUB_REPOSITORY_URL" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">GitHub repository</a>.
+                </p>
+
+                <h3 class="project-details__content-title">Dataset and Original Research</h3>
+                <p class="project-details__desc-para">
+                  Schmidt, P., Reiss, A., D&uuml;richen, R., Marberger, C., and
+                  Van Laerhoven, K. (2018).
+                  <em>Introducing WESAD, a Multimodal Dataset for Wearable Stress and Affect Detection.</em>
+                  ICMI, 400&ndash;408.
+                  <a href="https://doi.org/10.1145/3242969.3242985" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">Original paper</a>.
+                  Dataset: Schmidt, P., and Reiss, A. (2018),
+                  <a href="https://doi.org/10.24432/C57K5T" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">WESAD, UCI Machine Learning Repository</a>.
+                  Dataset collection and experimental design are credited to the original authors.
+                </p>
+              </div>
+
+              <div class="project-details__tools-used">
+                <h3 class="project-details__content-title">Tools</h3>
+                <div class="skills">
+                  <div class="skills__skill">Python</div>
+                  <div class="skills__skill">NumPy</div>
+                  <div class="skills__skill">Pandas</div>
+                  <div class="skills__skill">SciPy</div>
+                  <div class="skills__skill">Scikit-Learn</div>
+                  <div class="skills__skill">XGBoost</div>
+                  <div class="skills__skill">LightGBM</div>
+                  <div class="skills__skill">Signal Processing</div>
+                  <div class="skills__skill">LOSO Validation</div>
+                  <div class="skills__skill">Shapley Attribution</div>
+                  <div class="skills__skill">Matplotlib</div>
+                  <div class="skills__skill">Seaborn</div>
+                </div>
+              </div>
+
+              <div class="project-details__links">
+                <h3 class="project-details__content-title">Explore the Project</h3>
+                <a href="https://github.com/lidiascudiero/stress_physio_predictions" class="btn btn--med btn--theme project-details__links-btn" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                <a href="./index.html#projects" class="btn btn--med btn--theme-inv project-details__links-btn">Go Back</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm"><span>Social</span></h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/lidia-scudiero-413372354/"><img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="icon" /></a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/lidiascudiero"><img class="main-footer__icon" src="./assets/png/github-ico.png" alt="icon" /></a>
+              <a target="_blank" rel="noreferrer" href="https://www.youtube.com/@LidiaScudiero"><img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/yt-ico.png" alt="icon" /></a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Lidia Scudiero</h4>
+            <p class="main-footer__short-desc">Neuro-Data Scientist and Analyst building interpretable analytics for complex systems and real-world data.</p>
+          </div>
+        </div>
+        <div class="main-footer__lower">&copy; Copyright 2026. Made by Lidia Scudiero</div>
+      </div>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
